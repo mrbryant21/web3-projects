@@ -1,7 +1,12 @@
-import { defineConfig } from "hardhat/config";
+require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config();
 
-export default defineConfig({
-  solidity: {
-    version: "0.8.28",
+module.exports = {
+  solidity: "0.8.18",
+  networks: {
+    sepolia: {
+      url: process.env.SEPOLIA_RPC_URL,
+      accounts: [process.env.PRIVATE_KEY],
+    },
   },
-});
+};
